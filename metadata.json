@@ -1,0 +1,6 @@
+{
+  "name": "SmartPick UK — Best Products, Reviews & Buying Guides",
+  "description": "Independent UK buying guides, product comparisons and buying advice to help UK shoppers choose the best electronics, kitchenware, and audio gear.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
