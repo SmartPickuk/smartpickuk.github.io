@@ -2,65 +2,103 @@ import React from 'react';
 import { useApp } from '../context/AppContext';
 
 export const CategoriesSection: React.FC = () => {
-  const { setSelectedCategory } = useApp();
+  const { products, setSelectedCategory, showNotification } = useApp();
 
   const categories = [
-    { id: 'electronics', name: 'Electronics', icon: '💻', count: '14 Guides' },
-    { id: 'kitchen', name: 'Home & Kitchen', icon: '🏠', count: '28 Guides' },
-    { id: 'audio', name: 'Audio & Cans', icon: '🎧', count: '19 Guides' },
-    { id: 'travel', name: 'Travel & Power', icon: '📱', count: '12 Guides' },
-    { id: 'cleaning', name: 'Cleaning & Vacs', icon: '🧹', count: '10 Guides' },
-    { id: 'office', name: 'Home Office', icon: '💺', count: '16 Guides' },
+    { id: 'audio', name: 'Audio & Headphones', icon: '🎧', count: 'Audio picks' },
+    { id: 'kitchen', name: 'Home & Kitchen', icon: '🏠', count: 'Kitchen picks' },
+    { id: 'travel', name: 'Travel & Power', icon: '🔋', count: 'Travel picks' },
+    { id: 'cleaning', name: 'Cleaning & Vacs', icon: '🧹', count: 'Cleaning picks' },
+    { id: 'office', name: 'Home Office', icon: '🪑', count: 'Office picks' },
   ];
 
   const handleCategoryClick = (catId: string) => {
-    setSelectedCategory(catId);
-    const el = document.getElementById('products');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+    const matchingProducts = products.filter((product) => product.category === catId);
+
+    if (matchingProducts.length === 0) {
+      showNotification('No products are currently available in this category.');
+      return;
     }
+
+    setSelectedCategory(catId);
+
+    requestAnimationFrame(() => {
+      const el = document.getElementById('products');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  };
+
+  const handleViewAllProducts = () => {
+    setSelectedCategory('all');
+
+    requestAnimationFrame(() => {
+      const el = document.getElementById('products');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
   };
 
   return (
-    <section id="categories" className="py-14 bg-white border-b border-[#e7e9ef]">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+    <section id="categories" className="py-16 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
           <div>
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#172033]">
+            <p className="text-sm font-bold uppercase tracking-wider text-[#f59e0b] mb-2">
+              Shop smarter
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#172033]">
               Shop by category
             </h2>
-            <p className="text-slate-500 text-sm mt-1">
-              Explore useful products across popular UK shopping categories.
+            <p className="mt-2 text-slate-600 max-w-2xl">
+              Choose a category to jump straight to the relevant SmartPick products.
             </p>
           </div>
-          <a
-            href="#products"
-            className="text-xs font-bold text-[#ff7a00] hover:text-[#d85d00] transition-colors flex items-center gap-1"
+
+          <button
+            type="button"
+            onClick={handleViewAllProducts}
+            className="text-sm font-bold text-[#172033] hover:text-[#f59e0b] transition-colors"
           >
-            <span>View all products →</span>
-          </a>
+            View all products →
+          </button>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5 sm:gap-4">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => handleCategoryClick(cat.id)}
-              className="group bg-[#f8fafc] hover:bg-white border border-[#e2e8f0] hover:border-[#ff7a00]/40 rounded-2xl p-5 text-center transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-500/5 cursor-pointer flex flex-col items-center justify-center text-left"
-            >
-              <div className="w-14 h-14 rounded-2xl bg-white group-hover:bg-orange-50 border border-slate-100 group-hover:border-orange-200 flex items-center justify-center text-3xl shadow-xs transition-colors mb-3">
-                {cat.icon}
-              </div>
-              <strong className="block text-sm font-bold text-slate-800 group-hover:text-[#ff7a00] transition-colors">
-                {cat.name}
-              </strong>
-              <span className="text-[11px] text-slate-400 mt-0.5">
-                {cat.count}
-              </span>
-            </button>
-          ))}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          {categories.map((cat) => {
+            const productCount = products.filter(
+              (product) => product.category === cat.id && !product.dealTag
+            ).length;
+
+            return (
+              <button
+                key={cat.id}
+                type="button"
+                onClick={() => handleCategoryClick(cat.id)}
+                className="group text-left rounded-2xl border border-slate-200 bg-slate-50 p-5 hover:bg-white hover:border-amber-300 hover:shadow-lg transition-all duration-200"
+              >
+                <div className="text-3xl mb-4">{cat.icon}</div>
+
+                <h3 className="font-extrabold text-[#172033] group-hover:text-amber-600 transition-colors">
+                  {cat.name}
+                </h3>
+
+                <p className="mt-1 text-xs font-semibold text-slate-500">
+                  {productCount > 0 ? `${productCount} products` : cat.count}
+                </p>
+
+                <div className="mt-4 text-xs font-bold text-amber-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                  Explore category →
+                </div>
+              </button>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 };
+
+export default CategoriesSection;
