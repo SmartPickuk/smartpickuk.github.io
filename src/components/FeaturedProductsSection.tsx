@@ -204,20 +204,20 @@ export const FeaturedProductsSection: React.FC = () => {
                 </div>
 
                 {/* Price and Action Section */}
-<div className="p-5 pt-0 space-y-3">
-  <div className="flex items-center justify-between pt-3 border-t border-slate-100">
-    <div>
-      <div className="inline-flex items-center gap-2 rounded-full bg-amber-50 px-3 py-1 text-sm font-extrabold text-amber-700">
-        <Sparkles className="w-4 h-4" />
-        SmartPick Pick
-      </div>
-      <div className="mt-2 text-sm font-semibold text-slate-600">
-        Check latest price on Amazon UK
-      </div>
-    </div>
-  </div>
+           <div className="p-5 pt-0 space-y-3">
+          <div className="flex items-center justify-between pt-3 border-t border-slate-100">
+           <div>
+           <div className="inline-flex items-center gap-2 rounded-full bg-amber-50 px-3 py-1 text-sm font-extrabold text-amber-700">
+          <Sparkles className="w-4 h-4" />
+           SmartPick Pick
+           </div>
+            <div className="mt-2 text-sm font-semibold text-slate-600">
+           Check latest price on Amazon UK
+           </div>
+            </div>
+           </div>
   
-  {/* Stock / Pcs display */}
+                {/* Stock / Pcs display */}
                     
                     {/* Stock / Pcs display */}
                     <div className="text-right">
