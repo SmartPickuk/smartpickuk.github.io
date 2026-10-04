@@ -87,7 +87,7 @@ export const DealsSection: React.FC = () => {
                  {/* Price-free Deal CTA */}
 <div className="bg-slate-800/60 rounded-xl p-3 mb-4 border border-slate-700/60">
   <div className="flex items-center gap-2 text-amber-400 font-extrabold text-sm">
-    <Sparkles className="w-4 h-4" />
+    <Flame className="w-4 h-4" />
     SmartPick Deal
   </div>
 
