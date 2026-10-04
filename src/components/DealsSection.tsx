@@ -84,24 +84,17 @@ export const DealsSection: React.FC = () => {
                     {p.tagline}
                   </p>
 
-                  {/* Pricing block */}
-                  <div className="bg-slate-800/60 rounded-xl p-3 mb-4 border border-slate-700/60 flex items-baseline justify-between">
-                    <div>
-                      <div className="text-2xl font-black text-white">
-                        £{p.priceGbp.toFixed(2)}
-                      </div>
-                      <div className="text-xs text-slate-400 line-through">
-                        RRP £{p.originalPriceGbp?.toFixed(2)}
-                      </div>
-                    </div>
-                    {savings && (
-                      <div className="text-right">
-                        <span className="text-xs font-bold text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/40">
-                          Save £{savings}
-                        </span>
-                      </div>
-                    )}
-                  </div>
+                 {/* Price-free Deal CTA */}
+<div className="bg-slate-800/60 rounded-xl p-3 mb-4 border border-slate-700/60">
+  <div className="flex items-center gap-2 text-amber-400 font-extrabold text-sm">
+    <Sparkles className="w-4 h-4" />
+    SmartPick Deal
+  </div>
+
+  <div className="mt-1 text-sm text-slate-300">
+    Check latest price on Amazon UK
+  </div>
+</div>
                 </div>
 
                 <div className="space-y-2">
