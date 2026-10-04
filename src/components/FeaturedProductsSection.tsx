@@ -21,10 +21,9 @@ export const FeaturedProductsSection: React.FC = () => {
 
   const [sortBy, setSortBy] = useState<'recommended' | 'price-low' | 'price-high' | 'rating'>('recommended');
 
-  // Filter products by category
-  let filtered = selectedCategory === 'all'
-    ? products
-    : products.filter(p => p.category === selectedCategory);
+  //let filtered = products.filter(
+  p => !p.dealTag && (selectedCategory === 'all' || p.category === selectedCategory)
+);
 
   // Sorting
   filtered = [...filtered].sort((a, b) => {
