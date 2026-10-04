@@ -21,7 +21,7 @@ export const FeaturedProductsSection: React.FC = () => {
 
   const [sortBy, setSortBy] = useState<'recommended' | 'price-low' | 'price-high' | 'rating'>('recommended');
 
-  //let filtered = products.filter(
+  let filtered = products.filter(
   p => !p.dealTag && (selectedCategory === 'all' || p.category === selectedCategory)
 );
 
