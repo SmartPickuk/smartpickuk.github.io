@@ -95,7 +95,6 @@ export const DealsSection: React.FC = () => {
     Check latest price on Amazon UK
   </div>
 </div>
-                </div>
 
                 <div className="space-y-2">
                   <a
