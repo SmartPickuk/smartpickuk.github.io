@@ -255,7 +255,6 @@ export const FeaturedProductsSection: React.FC = () => {
                   >
                     View detailed specs & verdict →
                   </button>
-                </div>
               </article>
             );
           })}
