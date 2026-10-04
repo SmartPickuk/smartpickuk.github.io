@@ -1037,6 +1037,51 @@ export const AdminDashboard: React.FC = () => {
                   placeholder="Or enter custom image URL"
                   className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 focus:border-[#ff7a00] outline-hidden"
                 />
+                <div className="flex items-center gap-3 mt-3">
+  <label
+    htmlFor="product-image-upload"
+    className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800 border border-slate-600 rounded-lg cursor-pointer hover:bg-slate-700 transition-colors"
+  >
+    <Upload size={16} />
+    Upload Image
+  </label>
+
+  <input
+    id="product-image-upload"
+    type="file"
+    accept="image/*"
+    className="hidden"
+    onChange={(e) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+
+      if (file.size > 2 * 1024 * 1024) {
+        showNotification('Image must be smaller than 2MB');
+        e.target.value = '';
+        return;
+      }
+
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        if (typeof reader.result === 'string') {
+          setEditingProduct({
+            ...editingProduct,
+            imageUrl: reader.result,
+          });
+          showNotification('Image uploaded successfully');
+        }
+      };
+
+      reader.readAsDataURL(file);
+      e.target.value = '';
+    }}
+  />
+
+  <span className="text-xs text-slate-500">
+    JPG, PNG or WEBP • Max 2MB
+  </span>
+</div>
               </div>
 
               {/* Tagline & Verdict */}
