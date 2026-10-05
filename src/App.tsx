@@ -9,7 +9,6 @@ import { Link, Route, Routes, useParams } from 'react-router';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { CategoriesSection } from './components/CategoriesSection';
-import { DealsSection } from './components/DealsSection';
 import { BuyingGuidesSection } from './components/BuyingGuidesSection';
 import { FeaturedProductsSection } from './components/FeaturedProductsSection';
 import { ComparisonSection } from './components/ComparisonSection';
@@ -78,12 +77,18 @@ const HomePage: React.FC = () => {
 
       <main className="flex-1">
         <Hero />
+
         <CategoriesSection />
-        <DealsSection />
-        <BuyingGuidesSection />
+
+        {/* Featured UK Product Picks */}
         <FeaturedProductsSection />
+
+        <BuyingGuidesSection />
+
         <ComparisonSection />
+
         <ReviewApproachSection />
+
         <NewsletterSection />
       </main>
 
