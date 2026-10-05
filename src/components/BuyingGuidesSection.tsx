@@ -39,11 +39,12 @@ export const BuyingGuidesSection: React.FC = () => {
           {/* Filter segment tabs */}
           <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 text-xs">
             {[
-              ['all', `All Guides (${guidesData.length})`],
-              ['audio', 'Audio'],
-              ['kitchen', 'Kitchen'],
-              ['travel', 'Travel'],
-              ['cleaning', 'Cleaning'],
+  ['all', 'All Guides (' + guidesData.length + ')'],
+  ['audio', 'Audio'],
+  ['kitchen', 'Kitchen'],
+  ['travel', 'Travel'],
+  ['cleaning', 'Cleaning'],
+]
             ].map(([value, label]) => (
               <button
                 key={value}
