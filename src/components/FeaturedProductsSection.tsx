@@ -39,7 +39,7 @@ const ProductImage: React.FC<{ product: Product }> = ({ product }) => {
       loading="lazy"
       referrerPolicy="no-referrer"
       onError={() => setImageFailed(true)}
-      className="w-full h-full object-contain p-5 bg-white group-hover:scale-105 transition-transform duration-500"
+      className="w-full h-full object-contain p-2 bg-white group-hover:scale-105 transition-transform duration-500"
     />
   );
 };
