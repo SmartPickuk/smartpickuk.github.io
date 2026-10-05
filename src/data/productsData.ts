@@ -1,4 +1,5 @@
 import { Product } from '../types';
+import headphonesImage from '../assets/images/headphones_wireless_1791023330339.jpg';
 
 export const productsData: Product[] = [
   {
@@ -8,7 +9,7 @@ export const productsData: Product[] = [
     category: 'audio',
     categoryLabel: 'Audio',
     icon: '🎧',
-    imageUrl: '/src/assets/images/headphones_wireless_1791023330339.jpg',
+    imageUrl: headphonesImage,
     tagline: 'Best wireless noise cancelling headphones under £80 in the UK',
     description: 'Hybrid active noise cancellation with three modes (Transport, Outdoor, Indoor), 40-hour battery life with ANC on, and customisable EQ via the Soundcore app. Ultra-comfortable memory foam earcups suited for London Underground commutes.',
     rating: 4.6,
@@ -45,6 +46,7 @@ export const productsData: Product[] = [
     inStock: true,
     featuredInGuideId: 'guide-wireless-headphones'
   },
+
   {
     id: 'prod-headphones-sony-wh1000xm4',
     name: 'Sony WH-1000XM4 Noise Cancelling Wireless Headphones',
@@ -52,7 +54,7 @@ export const productsData: Product[] = [
     category: 'audio',
     categoryLabel: 'Audio',
     icon: '🎧',
-    imageUrl: '/src/assets/images/headphones_wireless_1791023330339.jpg',
+    imageUrl: headphonesImage,
     tagline: 'The gold standard in noise cancellation, comfort, and multipoint Bluetooth',
     description: 'Industry-leading noise cancellation powered by the HD Noise Cancelling Processor QN1. Features Speak-to-Chat, multipoint pairing to connect your laptop and phone simultaneously, and 30-hour battery life.',
     rating: 4.8,
@@ -89,6 +91,7 @@ export const productsData: Product[] = [
     inStock: true,
     featuredInGuideId: 'guide-wireless-headphones'
   },
+
   {
     id: 'prod-airfryer-ninja-dualzone-af300uk',
     name: 'Ninja Foodi DualZone Digital Air Fryer 7.6L [AF300UK]',
@@ -133,6 +136,7 @@ export const productsData: Product[] = [
     inStock: true,
     featuredInGuideId: 'guide-air-fryers'
   },
+
   {
     id: 'prod-airfryer-cosori-55l-xxl',
     name: 'COSORI Air Fryer 5.5L XXL [CP158-AF]',
@@ -177,6 +181,7 @@ export const productsData: Product[] = [
     inStock: true,
     featuredInGuideId: 'guide-air-fryers'
   },
+
   {
     id: 'prod-powerbank-anker-737',
     name: 'Anker 737 Power Bank (PowerCore 24K, 140W)',
@@ -221,6 +226,7 @@ export const productsData: Product[] = [
     inStock: true,
     featuredInGuideId: 'guide-power-banks'
   },
+
   {
     id: 'prod-powerbank-iniubank-10000',
     name: 'INIU 10,000mAh Ultra-Slim 22.5W Fast Charging Power Bank',
@@ -265,6 +271,7 @@ export const productsData: Product[] = [
     inStock: true,
     featuredInGuideId: 'guide-power-banks'
   },
+
   {
     id: 'prod-vacuum-roborock-q7-max',
     name: 'Roborock Q7 Max+ Robot Vacuum & Mop with Auto-Empty Dock',
@@ -309,6 +316,7 @@ export const productsData: Product[] = [
     inStock: true,
     featuredInGuideId: 'guide-robot-vacuums'
   },
+
   {
     id: 'prod-coffee-sage-barista-express',
     name: 'Sage The Barista Express Espresso Machine [SES875BSS]',
@@ -353,6 +361,7 @@ export const productsData: Product[] = [
     inStock: true,
     featuredInGuideId: 'guide-coffee-machines'
   },
+
   {
     id: 'prod-chair-sihoo-m57',
     name: 'SIHOO M57 Ergonomic Office Chair with 3D Adjustable Armrests',
